@@ -2,7 +2,7 @@
   <q-item
     clickable
     tag="a"
-    target="_blank"
+    :target="target ? '_blank' : null"
     :href="link"
   >
     <q-item-section
