@@ -1,20 +1,35 @@
 <template>
-  <q-btn
-    :color="buttonColor"
-    :outline="outline"
-    @click="$emit('click')"
-  >
+  <button @click="handleClick" class="custom-button">
     {{ label }}
-  </q-btn>
+  </button>
 </template>
 
 <script>
+import { ref } from 'vue'
+
 export default {
-  name: 'MyButton',
   props: {
-    label: String,
-    buttonColor: String,
-    outline: Boolean
+    label: String
+  },
+  setup (props, { emit }) {
+    const handleClick = () => {
+      emit('click')
+    }
+
+    return {
+      handleClick
+    }
   }
 }
 </script>
+
+<style scoped>
+.custom-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+</style>
