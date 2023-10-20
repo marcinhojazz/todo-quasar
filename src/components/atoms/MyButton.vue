@@ -1,6 +1,7 @@
 <template>
   <q-btn
-    color="primary"
+    :color="buttonColor"
+    :outline="outline"
     @click="$emit('click')"
   >
     {{ label }}
@@ -11,7 +12,9 @@
 export default {
   name: 'MyButton',
   props: {
-    label: String
+    label: String,
+    buttonColor: String,
+    outline: Boolean
   }
 }
 </script>
